@@ -46,13 +46,23 @@ function mergeSort(toSortArray) {
         let rightsideArr = toSortArray.slice(toSortArray.length / 2, toSortArray[toSortArray.length - 1])
         mergeSort(leftsideArr);
         console.log(leftsideArr);
-        console.log(rightsideArr)
+        console.log(rightsideArr);
+
+        if (leftsideArr.length !== 1) {
+            mergeSort(leftsideArr);
+        }
+
+        if (rightsideArr.length !== 1) {
+            mergeSort(rightsideArr);
+        }
+        
+        let sortedArray = [];
+
+        
 
     }
-    
-
 }
 
-let x = [2,1,4,3,6,7,8,9]
+let x = [2,1,4,3,6,2]
 
 mergeSort(x)
