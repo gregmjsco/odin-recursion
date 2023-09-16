@@ -48,19 +48,40 @@ function mergeSort(toSortArray) {
         console.log(leftsideArr);
         console.log(rightsideArr);
 
-        if (leftsideArr.length !== 1) {
             mergeSort(leftsideArr);
-        }
 
-        if (rightsideArr.length !== 1) {
             mergeSort(rightsideArr);
-        }
         
-        let sortedArray = [];
-
-        
-
     }
+}
+
+function merge(leftArr, rightArr) {
+    const mergedArr = [];
+
+    let leftCounter = 0;
+    let rightCounter = 0;
+
+    while(leftCounter < leftArr.length && rightCounter < rightArr.length) {
+        if(leftArr[leftCounter] < rightArr[rightCounter]) {
+            mergedArr.push(leftArr[leftCounter]);
+            leftCounter++;
+        } else {
+            mergedArr.push(rightArr[rightCounter]);
+            rightCounter++
+        }
+    }
+
+    while(leftCounter < leftArr.length) {
+        mergedArr.push(leftArr[leftCounter]);
+        leftCounter++
+    }
+
+    while(rightCounter < rightArr.length) {
+        mergedArr.push(rightArr[rightCounter]);
+        rightCounter++;
+    }
+
+    return mergedArr;
 }
 
 let x = [2,1,4,3,6,2]
