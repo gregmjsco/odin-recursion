@@ -9,7 +9,7 @@ function fib(n) {
     console.log("Result: " + result)
 }
 
-fib(8);
+// fib(8);
 
 
 function fibRec(n, result = [0, 1]) {
@@ -25,7 +25,7 @@ function fibRec(n, result = [0, 1]) {
     return fibRec(n, result)
 }
 
-console.log(fibRec(8))
+// console.log(fibRec(8))
 
 
 /*
@@ -38,19 +38,14 @@ console.log(fibRec(8))
 */
 
 function mergeSort(toSortArray) {
-    console.log(toSortArray);
     if (toSortArray.length < 2) {
-        return 
+        return toSortArray
     } else {
         let leftsideArr = toSortArray.slice(0, toSortArray.length / 2);
-        let rightsideArr = toSortArray.slice(toSortArray.length / 2, toSortArray[toSortArray.length - 1])
-        mergeSort(leftsideArr);
-        console.log(leftsideArr);
-        console.log(rightsideArr);
+        let rightsideArr = toSortArray.slice(toSortArray.length / 2);
 
-            mergeSort(leftsideArr);
-
-            mergeSort(rightsideArr);
+        return merge(mergeSort(leftsideArr), mergeSort(rightsideArr));
+      
         
     }
 }
@@ -84,6 +79,6 @@ function merge(leftArr, rightArr) {
     return mergedArr;
 }
 
-let x = [2,1,4,3,6,2]
+let x = [1,4,5,1,3,1,5,0,2,4,6,4,2,2,0,42,0,2,4,2,0,]
 
-mergeSort(x)
+console.log(mergeSort(x));
